@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Introduction
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel books API is a RESTfull API application made on the top of Laravel framework and for authentication, it uses the Sanctum token based authentication package.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Requirements**: PHP 8.1, Composer, RDBMS (such as MySQL, MariaDB, PostgreSQL, etc.)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Installation Steps:**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clone the repository ```git clone https://github.com/bhupindersingh007/laravel-books-api.git``` or download zip.
+2. Open the directory ```laravel-books-api``` in the terminal.
+3. Install composer dependencies ```composer install```.
+4. Make a new ```.env``` file and copy ```.env.example``` file to ```.env```.
+5. Set the database configuration in the ``.env`` like ```DB_DATABASE, DB_USERNAME and DB_PASSWORD```.
+7. Generate key: ```php artisan key:generate```.
+8. Run the migration with seeder: ```php artisan migrate:fresh --seed```.
+9. Run the application: ```php artisan serve```.
 
-## Learning Laravel
+## API Documentation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The Laravel books API application provides the following routes or api endpoints:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Books API**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- GET - ```/api/books``` : list books data ```(id, title, isbn, published_at, category, authors, publisher)```.
+- GET - ```/api/books/1``` : give book data with id as ```"1"```
+- GET - ```/api/books?search=atomic``` : list books with title containing ```"atomic"```
+- GET - ```/api/books?page=2``` : list books in the second page of paginator.
 
-## Laravel Sponsors
+**Authors API**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- GET - ```/api/authors``` : list authors data ```(id, name, email_address, website)```. 
+- GET - ```/api/authors/1``` : give author data with id ```"1"```.
+- GET - ```/api/authors?search=james``` : list authors with name containing ```"james"```.
+- GET - ```/api/authors?page=3``` : list authors in the third page of paginator.
 
-### Premium Partners
+**Authors API**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- GET - ```/api/publishers``` : list publishers data ```(id, name, email_addres, contact_number, address, website)```.
+- GET - ```/api/publishers/6```: give publisher data with id of ```"6"```.
+- GET - ```/api/publishers?search=Penguin``` : list publishers with name containing ```"Penguin"```.
+- GET - ```/api/publishers?page=1```: list publishers in the first page of paginator.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Authors API**
 
-## Code of Conduct
+- GET - ```/api/categories``` : list categories ```(id, name)```.
+- GET - ```/api/categories/5``` : give category data with id of ```"5"```.
+- GET - ```/api/categories?search=Fantasy``` : search categories with word ```"Fantasy"```.
+- GET - ```/api/categories?page=1``` : list categories in the third page of paginator.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+**Authors API**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- POST - ```/api/login``` : allow user to login by providing valid ```email``` and ```password```, and give logined user information and api access token as json response 
+- POST - ```/api/register``` : allow user to register by valid ```name, email and password``` and give logined user information and api access token. 
+- POST - ```/api/logout``` :  this endpoint will logout the user and delete token. The user has to provide access token in the header ```Authorization: Bearer token```
 
-## License
+**Logged In User API**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- GET - ```/api/user``` : give the data of currently logged in user.
+
+***NOTES*** : 
+
+- Add ```Accept: application/json``` and ```Authorization: Bearer token``` in all the request header except ```/api/login``` and ```/api/register``` api endpoints. 
+- All api endpoints are secured by ```auth:sanctum``` middleware by Sanctum except ```/api/login``` and ```/api/register``` api endpoints.
+
+## Technology Stack :
+
+- [PHP 8.1](https://www.php.net/) - A popular general-purpose scripting language for web development.
+- [Laravel 10](https://laravel.com/docs/10.x) - PHP fullstack web application framework.
+- [Sanctum 3.2](https://laravel.com/docs/10.x/sanctum) - featherweight token based authentication system for SPAs.
+- [MySQL 8.0](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/) - The world's most popular open source relational database. 
+
+
+
+
+
+
