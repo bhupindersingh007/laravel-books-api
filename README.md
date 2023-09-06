@@ -66,15 +66,20 @@ The Laravel books API application provides the following routes or api endpoints
 - Add ```Accept: application/json``` and ```Authorization: Bearer token``` in all the request header except ```/api/login``` and ```/api/register``` api endpoints. 
 - All api endpoints are secured by ```auth:sanctum``` middleware by Sanctum except ```/api/login``` and ```/api/register``` api endpoints.
 
-## Technology Stack :
+## Technology Stack 
 
 - [PHP 8.1](https://www.php.net/) - A popular general-purpose scripting language for web development.
 - [Laravel 10](https://laravel.com/docs/10.x) - PHP fullstack web application framework.
 - [Sanctum 3.2](https://laravel.com/docs/10.x/sanctum) - featherweight token based authentication system for SPAs.
-- [MySQL 8.0](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/) - The world's most popular open source relational database. 
+- [MySQL 8.0](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/) - The world's most popular open source relational database.
 
+## Credits 
 
+The following resources helped me a lot in my Laravel learning journey:
 
+- [Laravel Docs](https://laravel.com/docs) - Laravel Documentation 
+- [Laracasts](https://laracasts.com/) - Amazing platform to learn about PHP & Laravel and other technologies from top creators.
+- [Laravel Daily](https://www.youtube.com/@LaravelDaily) -The most awesome YouTube channel to learn the Laravel framework. 
 
 
 
