@@ -4,7 +4,7 @@ Laravel books API is a RESTfull API application made on the top of Laravel frame
 
 ## Installation
 
-**Requirements**: PHP 8.1, Composer, RDBMS (such as MySQL, MariaDB, PostgreSQL, etc.)
+**Requirements**: PHP >= 8.1, Composer, RDBMS (such as MySQL, MariaDB, PostgreSQL, etc.)
 
 **Installation Steps:**
 
